@@ -100,15 +100,18 @@
 
 
     window.addEventListener('load', function () {
+        // handle base indo
         django.jQuery("[indo]").each(function (index) {
             init(django.jQuery(this));
             init_loading(django.jQuery(this));
         });
 
+        // handle automatic call on load
         django.jQuery("[indo][indo_initial]").each(function (index) {
             handle_auto(django.jQuery(this));
         });
 
+        // handle add extra inlines
         django.jQuery(".add-row a").on('click', function () {
             setTimeout(function () {
                 django.jQuery("[indo]").each(function (index) {
@@ -118,6 +121,20 @@
                     init(django.jQuery(this));
                 });
             }, 50);
+        });
+
+        // change django related_lookup function to trigger change event 
+        django.jQuery("a.related-lookup").on('django:lookup-related', function () {
+            if (!window.trigger_added) {
+                var old_dismissRelatedLookupPopup = dismissRelatedLookupPopup;
+                dismissRelatedLookupPopup = function (win, chosenId) {
+                    old_dismissRelatedLookupPopup(win, chosenId);
+                    django.jQuery('#' + win.name).trigger('change')
+                    console.log('gg')
+                };
+                window.dismissRelatedLookupPopup = dismissRelatedLookupPopup;
+                window.trigger_added = true
+            }
         });
     });
 }
