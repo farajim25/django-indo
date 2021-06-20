@@ -1,6 +1,7 @@
 import json
 
 from django import forms
+from django.core.exceptions import PermissionDenied
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
 from django.urls import path
@@ -52,6 +53,9 @@ class IndoResponseMixin:
 
         content = {}
         obj = self.get_object(request, object_id)
+
+        if self.has_view_permission(request, obj):
+            raise PermissionDenied
 
         if obj:
             content = self.indo_make_response(request, obj, parameter)
