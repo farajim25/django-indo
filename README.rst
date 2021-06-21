@@ -2,7 +2,7 @@ Django-Indo
 ===========
 Auto load field data on change of other field value in django admin with Ajax call
 
-![ ](./docs/images/example.gif)
+.. image:: https://github.com/farajim25/django-indo/blob/master/docs/images/example.gif
 
 Requirements
 ------------
