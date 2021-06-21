@@ -12,11 +12,13 @@ Requirements
 Installation
 ------------
 .. code:: bash
+
     pip install django-indo
 
 Add ``indo`` to ``INSTALLED_APPS``:
 
 .. code:: python
+
     INSTALLED_APPS = [
         ...
         'indo',
@@ -27,8 +29,8 @@ Add ``indo`` to ``INSTALLED_APPS``:
 Example usage
 -------------
 .. code:: python
-    from indo.admin import IndoResponseMixin, IndoSetFieldMixin
 
+    from indo.admin import IndoResponseMixin, IndoSetFieldMixin
 
     @admin.register(Customer)
     class CustomerAdmin(IndoResponseMixin, admin.ModelAdmin):
