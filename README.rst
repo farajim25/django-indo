@@ -11,24 +11,22 @@ Requirements
 
 Installation
 ------------
-```bash
-pip install django-indo
-```
+.. code:: bash
+    pip install django-indo
 
 Add ``indo`` to ``INSTALLED_APPS``:
 
-
-```python
+.. code:: python
     INSTALLED_APPS = [
         ...
         'indo',
         ...
     ]
-```
+
 
 Example usage
 -------------
-```python
+.. code:: python
     from indo.admin import IndoResponseMixin, IndoSetFieldMixin
 
 
@@ -48,4 +46,3 @@ Example usage
         indo_fields = {
             'delivery_address': 'customer__address'
         }
-```
