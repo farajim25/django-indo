@@ -54,7 +54,7 @@ class IndoResponseMixin:
         content = {}
         obj = self.get_object(request, object_id)
 
-        if self.has_view_permission(request, obj):
+        if not self.has_view_permission(request, obj):
             raise PermissionDenied
 
         if obj:
