@@ -130,8 +130,7 @@
                 var old_dismissRelatedLookupPopup = dismissRelatedLookupPopup;
                 dismissRelatedLookupPopup = function (win, chosenId) {
                     old_dismissRelatedLookupPopup(win, chosenId);
-                    django.jQuery('#' + win.name).trigger('change')
-                    console.log('gg')
+                    django.jQuery('#' + win.name).trigger('change');
                 };
                 window.dismissRelatedLookupPopup = dismissRelatedLookupPopup;
                 window.trigger_added = true
